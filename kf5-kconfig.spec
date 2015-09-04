@@ -1,15 +1,15 @@
-%define		kdeframever	5.10
+%define		kdeframever	5.13
 %define		qtver		5.3.2
 %define		kfname		kconfig
 
 Summary:	Backend for storing application configuration
 Name:		kf5-%{kfname}
-Version:	5.10.0
+Version:	5.13.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	0c762fbe3b98fede3e8a7af3e18e71bb
+# Source0-md5:	d470179fc4c8a2060b94452d25d466c8
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
@@ -91,10 +91,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libKF5ConfigCore.so.*.*
 %attr(755,root,root) %ghost %{_libdir}/libKF5ConfigGui.so.5
 %attr(755,root,root) %{_libdir}/libKF5ConfigGui.so.*.*
-%attr(755,root,root) %{_bindir}/kconfig_compiler_kf5
 %attr(755,root,root) %{_bindir}/kreadconfig5
 %attr(755,root,root) %{_bindir}/kwriteconfig5
 %attr(755,root,root) %{_libdir}/kf5/kconf_update
+%attr(755,root,root) %{_libdir}/kf5/kconfig_compiler_kf5
 
 %files devel
 %defattr(644,root,root,755)
