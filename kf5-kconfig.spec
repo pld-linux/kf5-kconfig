@@ -5,7 +5,7 @@
 Summary:	Backend for storing application configuration
 Name:		kf5-%{kfname}
 Version:	5.19.0
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
@@ -72,6 +72,7 @@ cd build
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_datadir}/kconf_update
 
 %{__make} -C build/ install \
         DESTDIR=$RPM_BUILD_ROOT
@@ -95,6 +96,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kwriteconfig5
 %attr(755,root,root) %{_libdir}/kf5/kconf_update
 %attr(755,root,root) %{_libdir}/kf5/kconfig_compiler_kf5
+%dir %{_datadir}/kconf_update
 
 %files devel
 %defattr(644,root,root,755)
