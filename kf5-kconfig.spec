@@ -99,6 +99,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libexecdir}/kf5/kconf_update
 %attr(755,root,root) %{_libexecdir}/kf5/kconfig_compiler_kf5
 %dir %{_datadir}/kconf_update
+%{_datadir}/qlogging-categories5/kconfig.categories
 
 %files devel
 %defattr(644,root,root,755)
