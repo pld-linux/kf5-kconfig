@@ -1,5 +1,5 @@
 %define		kdeframever	5.80
-%define		qtver		5.9.0
+%define		qtver		5.14.0
 %define		kfname		kconfig
 
 Summary:	Backend for storing application configuration
@@ -11,17 +11,20 @@ Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
 # Source0-md5:	d8e2ca73a146a7111d83258b837b4052
 URL:		http://www.kde.org/
-BuildRequires:	Qt5Core-devel >= %{qtver}
+BuildRequires:	Qt5DBus-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
 BuildRequires:	Qt5Test-devel >= %{qtver}
 BuildRequires:	Qt5Xml-devel >= %{qtver}
-BuildRequires:	cmake >= 2.8.12
+BuildRequires:	cmake >= 3.5
 BuildRequires:	kf5-extra-cmake-modules >= %{kdeframever}
 BuildRequires:	ninja
 BuildRequires:	qt5-linguist >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
+Requires:	Qt5DBus >= %{qtver}
+Requires:	Qt5Gui >= %{qtver}
+Requires:	Qt5Xml >= %{qtver}
 Requires:	kf5-dirs
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -54,8 +57,9 @@ Summary:	Header files for %{kfname} development
 Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kfname}
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	Qt5DBus-devel >= %{qtver}
 Requires:	Qt5Xml-devel >= %{qtver}
-Requires:	cmake >= 2.6.0
+Requires:	cmake >= 3.5
 
 %description devel
 Header files for %{kfname} development.
