@@ -1,15 +1,15 @@
-%define		kdeframever	5.83
+%define		kdeframever	5.84
 %define		qtver		5.14.0
 %define		kfname		kconfig
 
 Summary:	Backend for storing application configuration
 Name:		kf5-%{kfname}
-Version:	5.83.0
+Version:	5.84.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	15bcc157dbdc82e7d327f6e6b5c8a629
+# Source0-md5:	067976c5fb8265fab6fa1f2038c10b0b
 URL:		http://www.kde.org/
 BuildRequires:	Qt5DBus-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
