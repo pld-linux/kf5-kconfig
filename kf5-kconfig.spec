@@ -1,15 +1,15 @@
-%define		kdeframever	5.88
+%define		kdeframever	5.89
 %define		qtver		5.15.2
 %define		kfname		kconfig
 
 Summary:	Backend for storing application configuration
 Name:		kf5-%{kfname}
-Version:	5.88.0
+Version:	5.89.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	c02f5ecfa8ad1a5a4673dd36bdb208de
+# Source0-md5:	57111fa47703d8f9db485fb8bdf5fd49
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
@@ -98,6 +98,8 @@ rm -rf $RPM_BUILD_ROOT
 %ghost %{_libdir}/libKF5ConfigCore.so.5
 %attr(755,root,root) %{_libdir}/libKF5ConfigCore.so.*.*
 %ghost %{_libdir}/libKF5ConfigGui.so.5
+%ghost %{_libdir}/libKF5ConfigQml.so.5
+%attr(755,root,root) %{_libdir}/libKF5ConfigQml.so.*.*
 %attr(755,root,root) %{_libdir}/libKF5ConfigGui.so.*.*
 %attr(755,root,root) %{_bindir}/kreadconfig5
 %attr(755,root,root) %{_bindir}/kwriteconfig5
@@ -111,8 +113,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_libdir}/libKF5ConfigCore.so
 %{_libdir}/libKF5ConfigGui.so
+%{_libdir}/libKF5ConfigQml.so
 %{_includedir}/KF5/KConfigCore
 %{_includedir}/KF5/KConfigGui
+%{_includedir}/KF5/KConfigQml
 %{_includedir}/KF5/kconfig_version.h
 %{_libdir}/cmake/KF5Config
 %{qt5dir}/mkspecs/modules/qt_KConfigCore.pri
