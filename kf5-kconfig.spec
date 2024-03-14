@@ -1,24 +1,24 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeframever	5.249.0
+%define		kdeframever	5.114
 %define		qtver		5.15.2
 %define		kfname		kconfig
 
 Summary:	Backend for storing application configuration
 Name:		kf5-%{kfname}
-Version:	5.249.0
-Release:	0.1
+Version:	5.114.0
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
-Source0:	https://download.kde.org/unstable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	22c5876f6d503d4833c06faa5f67946a
+Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
+# Source0-md5:	0339e2f348a4148daf2d61c1fcb8c022
 URL:		http://www.kde.org/
-BuildRequires:	Qt6Core-devel >= %{qtver}
-BuildRequires:	Qt6DBus-devel >= %{qtver}
-BuildRequires:	Qt6Gui-devel >= %{qtver}
-BuildRequires:	Qt6Test-devel >= %{qtver}
-BuildRequires:	Qt6Xml-devel >= %{qtver}
+BuildRequires:	Qt5Core-devel >= %{qtver}
+BuildRequires:	Qt5DBus-devel >= %{qtver}
+BuildRequires:	Qt5Gui-devel >= %{qtver}
+BuildRequires:	Qt5Test-devel >= %{qtver}
+BuildRequires:	Qt5Xml-devel >= %{qtver}
 BuildRequires:	cmake >= 3.16
 BuildRequires:	kf5-extra-cmake-modules >= %{kdeframever}
 BuildRequires:	ninja
@@ -26,9 +26,9 @@ BuildRequires:	qt5-linguist >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
-Requires:	Qt6DBus >= %{qtver}
-Requires:	Qt6Gui >= %{qtver}
-Requires:	Qt6Xml >= %{qtver}
+Requires:	Qt5DBus >= %{qtver}
+Requires:	Qt5Gui >= %{qtver}
+Requires:	Qt5Xml >= %{qtver}
 Requires:	kf5-dirs
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -61,8 +61,8 @@ Summary:	Header files for %{kfname} development
 Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kfname}
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	Qt6DBus-devel >= %{qtver}
-Requires:	Qt6Xml-devel >= %{qtver}
+Requires:	Qt5DBus-devel >= %{qtver}
+Requires:	Qt5Xml-devel >= %{qtver}
 Requires:	cmake >= 3.16
 
 %description devel
@@ -103,32 +103,29 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{kfname}5_qt.lang
 %defattr(644,root,root,755)
 %doc DESIGN README.md TODO
-%ghost %{_libdir}/libKF6ConfigCore.so.6
-%attr(755,root,root) %{_libdir}/libKF6ConfigCore.so.*.*
-%ghost %{_libdir}/libKF6ConfigGui.so.6
-%ghost %{_libdir}/libKF6ConfigQml.so.6
-%dir %{_libdir}/qt6/qml/org/kde/config
-%{_libdir}/qt6/qml/org/kde/config/kconfigqmlplugin.qmltypes
-%{_libdir}/qt6/qml/org/kde/config/kde-qmlmodule.version
-%attr(755,root,root) %{_libdir}/qt6/qml/org/kde/config/libkconfigqmlplugin.so
-%{_libdir}/qt6/qml/org/kde/config/qmldir
-%attr(755,root,root) %{_libdir}/libKF6ConfigQml.so.*.*
-%attr(755,root,root) %{_libdir}/libKF6ConfigGui.so.*.*
-%attr(755,root,root) %{_bindir}/kreadconfig6
-%attr(755,root,root) %{_bindir}/kwriteconfig6
-%attr(755,root,root) %{_libexecdir}/kf6/kconf_update
-%attr(755,root,root) %{_libexecdir}/kf6/kconfig_compiler_kf6
+%ghost %{_libdir}/libKF5ConfigCore.so.5
+%attr(755,root,root) %{_libdir}/libKF5ConfigCore.so.*.*
+%ghost %{_libdir}/libKF5ConfigGui.so.5
+%ghost %{_libdir}/libKF5ConfigQml.so.5
+%attr(755,root,root) %{_libdir}/libKF5ConfigQml.so.*.*
+%attr(755,root,root) %{_libdir}/libKF5ConfigGui.so.*.*
+%attr(755,root,root) %{_bindir}/kreadconfig5
+%attr(755,root,root) %{_bindir}/kwriteconfig5
+%attr(755,root,root) %{_libexecdir}/kf5/kconf_update
+%attr(755,root,root) %{_libexecdir}/kf5/kconfig_compiler_kf5
 %dir %{_datadir}/kconf_update
-%{_datadir}/qlogging-categories6/kconfig.categories
-%{_datadir}/qlogging-categories6/kconfig.renamecategories
+%{_datadir}/qlogging-categories5/kconfig.categories
+%{_datadir}/qlogging-categories5/kconfig.renamecategories
 
 %files devel
 %defattr(644,root,root,755)
-%{_libdir}/libKF6ConfigCore.so
-%{_libdir}/libKF6ConfigGui.so
-%{_libdir}/libKF6ConfigQml.so
-%{_includedir}/KF6/KConfigCore
-%{_includedir}/KF6/KConfigGui
-%{_includedir}/KF6/KConfigQml
-%{_includedir}/KF6/KConfig
-%{_libdir}/cmake/KF6Config
+%{_libdir}/libKF5ConfigCore.so
+%{_libdir}/libKF5ConfigGui.so
+%{_libdir}/libKF5ConfigQml.so
+%{_includedir}/KF5/KConfigCore
+%{_includedir}/KF5/KConfigGui
+%{_includedir}/KF5/KConfigQml
+%{_includedir}/KF5/KConfig
+%{_libdir}/cmake/KF5Config
+%{qt5dir}/mkspecs/modules/qt_KConfigCore.pri
+%{qt5dir}/mkspecs/modules/qt_KConfigGui.pri
