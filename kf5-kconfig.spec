@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeframever	5.115
+%define		kdeframever	5.116
 %define		qtver		5.15.2
 %define		kfname		kconfig
 
 Summary:	Backend for storing application configuration
 Name:		kf5-%{kfname}
-Version:	5.115.0
+Version:	5.116.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	fcb77cb2d9349b33e9e085ca4d2ebe7f
+# Source0-md5:	b8d53f0bb916a5da2201dfbd2da3bce8
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
